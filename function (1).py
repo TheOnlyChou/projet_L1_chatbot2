@@ -65,9 +65,7 @@ def ext_pres():
     Tab = []
     for element in L:
         element = element[11:]
-        element = element.replace(".txt","")
-        element = element.replace("1","")
-        element = element.replace("2","")
+        element = element.replace(".txt","").replace("1","").replace("2","")
         Tab.append(element)
     return Tab 
 def TF():#fonction qui sert a mettre dans un dico tout les mots avec le nombre de leurs occurances
@@ -81,7 +79,6 @@ def TF():#fonction qui sert a mettre dans un dico tout les mots avec le nombre d
             else:
                 liste_of_words[mot]+=1
     return liste_of_words 
-
 def IDF(mot_chercher):#revoie le log de chaque mot voulu un par un
     cpt=0
     for fichier in list_of_files("./speeches",".txt") :
@@ -169,7 +166,7 @@ def climat():# question 5 renvoie le nom du president qui parle le premier du cl
     liste_des_presidents=[]
     L=[]
     val=7
-    pres = {"Giscard dEstaing":1,"Miterrand":2,"Chirac":3,"Sarkozy":4,"Hollande":5,"Macron":6}
+    pres = {"Giscard dEstaing":1,"Mitterrand":2,"Chirac":3,"Sarkozy":4,"Hollande":5,"Macron":6}
     for fichier in list_of_files("./speeches",".txt") :
         f = open(f"cleaned/{fichier}","r",encoding="utf8")
         texte = f.read()
@@ -187,25 +184,27 @@ def climat():# question 5 renvoie le nom du president qui parle le premier du cl
                         premier=key
     return premier
 
-
-
-
 def mot_evoque():# renvoie les mots qui ont ete prononcer par tout les presidents
     liste_non_importants=min_idf()
     tab_des_mots=TF()
-    cpt=0
+    pres = {"Giscard dEstaing":[],"Mitterrand":[],"Chirac":[],"Sarkozy":[],"Hollande":[],"Macron":[]}
     L=[]
-    tab_occurences={}
     for fichier in list_of_files("./speeches",".txt") :
         f = open(f"cleaned/{fichier}","r",encoding="utf8")
         texte = f.read()
+        file=fichier
+        file = file[11:]
+        file = file.replace(".txt","").replace("1","").replace("2","")
         for key,value in tab_des_mots.items():
-            if tab_des_mots[key] in texte.split():
+            if key in texte.split() :
+                for keys,values in pres.items():
+                    if key not in pres[file]:
+                        pres[file].append(key)
+    for i in pres["Chirac"]:
+        cpt=0
+        for clef,valeurs in pres.items():
+            if i in pres[clef] and i not in liste_non_importants:
                 cpt+=1
-            tab_occurences[key]=cpt
-    print(tab_occurences)
-    for keys,value in tab_occurences.items():
-        if tab_occurences[keys] == 8 and tab_occurences[keys] not in liste_non_importants :
-            L.append(keys)
+        if cpt==len(pres):
+            L.append(i)         
     return L
-print(mot_evoque())
