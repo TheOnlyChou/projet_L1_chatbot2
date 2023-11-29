@@ -67,7 +67,8 @@ def ext_pres():
         element = element[11:]
         element = element.replace(".txt","").replace("1","").replace("2","")
         Tab.append(element)
-    return Tab 
+        Tableau_final = list(set(Tab))
+    return Tableau_final 
 def TF():#fonction qui sert a mettre dans un dico tout les mots avec le nombre de leurs occurances
     liste_of_words = {}
     for fichier in list_of_files("./speeches",".txt") :
@@ -182,7 +183,10 @@ def climat():# question 5 renvoie le nom du president qui parle le premier du cl
                     if val > pres[key]:
                         val=pres[key]
                         premier=key
-    return premier
+    return ("Le premier president a avoir parler du climat est {}".format(premier))
+
+
+
 
 def mot_evoque():# renvoie les mots qui ont ete prononcer par tout les presidents
     liste_non_importants=min_idf()
