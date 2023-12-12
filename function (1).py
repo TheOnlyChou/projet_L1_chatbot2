@@ -71,8 +71,16 @@ def ext_pres():
         element = element[11:]
         element = element.replace(".txt","").replace("1","").replace("2","")
         Tab.append(element)
-        Tableau_final = list(set(Tab))
+        Tableau_final = list(set(Tab)) # Enlever directement les doublons des noms
     return Tableau_final 
+# Dictionnaire associant le nom du président à son prénom
+def assoc(Tab):
+    Tab = ext_pres()
+    dico = {}
+    prenoms = ['Jacques', 'Valéry', 'François', 'Emmanuel', 'François', 'Nicolas']
+    for i in range(len(prenoms)):
+        dico[Tab[i]] = prenoms[i]
+    return dico
 def TF():#fonction qui sert a mettre dans un dico tout les mots avec le nombre de leurs occurances
     liste_of_words = {}
     for fichier in list_of_files("./speeches",".txt") :
