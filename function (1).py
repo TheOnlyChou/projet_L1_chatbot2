@@ -57,10 +57,9 @@ def ext_pres():
             L.append(fichier)
     Tab = []
     for element in L:
-        element = element[11:]
-        element = element.replace(".txt","").replace("1","").replace("2","")
+        element = element[11:].replace(".txt","").replace("1","").replace("2","")
         Tab.append(element)
-        Tableau_final = list(set(Tab)) # Enlever directement les doublons des noms
+    Tableau_final = list(set(Tab)) # Enlever directement les doublons des noms
     return Tableau_final 
 # Dictionnaire associant le nom du président à son prénom
 def assoc(Tab):
@@ -157,8 +156,7 @@ def Nation():#question 4 renvoie les presidents parlant de Nation et celui qui p
         if "nation" in texte.split():
             L.append(fichier)
             for element in L:
-                element = element [11:]
-                element = element.replace(".txt","").replace("1","").replace("2","")
+                element = element[11:].replace(".txt","").replace("1","").replace("2","")
             liste_des_presidents.append(element)
             for mot in texte.split():
                 if mot == "nation":
@@ -184,8 +182,7 @@ def climat():# question 5 renvoie le nom du president qui parle le premier du cl
         if ("climatique" or "ecologie") in texte.split():
             L.append(fichier)
             for element in L:
-                element = element [11:]
-                element = element.replace(".txt","").replace("1","").replace("2","")
+                element = element[11:].replace(".txt","").replace("1","").replace("2","")
             liste_des_presidents.append(element)
             liste_pres = list(set(liste_des_presidents))  
             for key,valeurs in pres.items():
