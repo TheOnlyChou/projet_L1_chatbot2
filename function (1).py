@@ -4,9 +4,8 @@ import random
 from math import *
 def minuscules():
     if not os.path.exists("cleaned"):
-        os.mkdir("cleaned")
-        creation_cleaned()      
-    return 
+        os.mkdir("cleaned")     
+    return creation_cleaned() 
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
