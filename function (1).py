@@ -2,14 +2,6 @@
 import os
 import random
 from math import *
-def intro():
-    print("avez vous creer les fichiers ?")
-    rep = input('Rentre ton choix (oui,non): ')
-    print(ext_pres())
-    if rep == 'oui':
-        pass
-    else : 
-        minuscules()
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
