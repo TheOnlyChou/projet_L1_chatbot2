@@ -2,6 +2,11 @@
 import os
 import random
 from math import *
+def minuscules():
+    if not os.path.exists("cleaned"):
+        os.mkdir("cleaned")
+        creation_cleaned()      
+    return 
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
@@ -45,11 +50,6 @@ def creation_cleaned():
             f = open(fichier,"w",encoding="utf8")
             f.write(copie(fichier))
             f.close()
-    return 
-def minuscules():
-    if not os.path.exists("cleaned"):
-        os.mkdir("cleaned")
-        creation_cleaned()      
     return 
 def ext_pres():
     liste = os.listdir("speeches")
