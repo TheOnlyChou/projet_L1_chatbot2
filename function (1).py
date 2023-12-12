@@ -340,4 +340,4 @@ def max_cos(matrice1,matrice2):
                             return "Dans les textes c'est {} qui a le plus de ressemblance avec votre question avec un score de {} et le mot avec le plus grand TF-IDF est {} avec un score de {} est voici la premiere phrase ou il a été dit {}.".format(clef1,maxi1,clef2,maxi2,phrase)
                         else :
                             phrase = ""
-    return "ALED"
+    return ""Votre Question n'est pas correctement formuler veuillez changer quelques mot ou le sens de la phrase pour plus de résultat .""
