@@ -143,7 +143,7 @@ def mot_rep(file_name):# donne le mot qui a ete le plus prononcer par un preside
             val_max = dico_count[key]
             clef=key
         
-    return("Le mot le plus dit par '{}' est '{}' et il est dit {} fois".format(file_name,clef,val_max))          
+    return(f"Le mot le plus dit par '{file_name}' est '{clef}' et il est dit {val_max} fois")          
 def Nation():#question 4 renvoie les presidents parlant de Nation et celui qui parle le plus de nation
     liste_des_presidents=[]
     L=[]
