@@ -49,7 +49,6 @@ def creation_cleaned():
             f = open(fichier,"w",encoding="utf8")
             f.write(copie(fichier))
             f.close()
-    return 
 def ext_pres():
     liste = os.listdir("speeches")
     L = []
