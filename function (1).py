@@ -169,7 +169,7 @@ def Nation():#question 4 renvoie les presidents parlant de Nation et celui qui p
                 if dico_count[key] > val_max:
                     val_max = dico_count[key]
                     clef=key  
-    return ("Les presidents qui ont parler de 'Nation' sont {} et celui qui en a le plus parler est {} avec {} occurences.".format(liste_pres,clef,val_max))
+    return (f"Les presidents qui ont parlé de 'Nation' sont {liste_pres} et celui qui en a le plus parler est {clef} avec {val_max} occurences.")
 def climat():# question 5 renvoie le nom du president qui parle le premier du climat 
     premier=""
     liste_des_presidents=[]
@@ -190,7 +190,7 @@ def climat():# question 5 renvoie le nom du president qui parle le premier du cl
                     if val > pres[key]:
                         val=pres[key]
                         premier=key
-    return ("Le premier president a avoir parler du climat est {}".format(premier))
+    return (f"Le premier president a avoir parlé du climat est {premier}")
 def mot_evoque():# renvoie les mots qui ont ete prononcer par tout les presidents
     liste_non_importants=min_idf()
     tab_des_mots=TF()
