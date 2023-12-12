@@ -44,6 +44,7 @@ elif acces == 9 :
     print(min_idf())
     print(max_td_idf())
     valeur=input("nom ou partie du nom du president souhaiter : ")
+    print(mot_rep(valeur))
     print(Nation())
     print(climat())
     print(mot_evoque())
