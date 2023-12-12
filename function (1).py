@@ -2,10 +2,6 @@
 import os
 import random
 from math import *
-def minuscules():
-    if not os.path.exists("cleaned"):
-        os.mkdir("cleaned")     
-    return creation_cleaned() 
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
@@ -33,22 +29,26 @@ def modification(txt):
         else :
             sectxt=sectxt + elt
     return sectxt
-def copie(file):
+def copie_minuscule(file):
     os.chdir("../")
     texte=""
     f = open(f"speeches/{file}","r",encoding="utf8")
     texte = str(f.read())
     texte = texte.lower()
     return modification(texte)
-def creation_cleaned():
+def creation_Nomination_cleaned():
     for fichier in list_of_files("./speeches",".txt"):
         if fichier not in os.listdir("cleaned"):
             os.chdir("cleaned")
             f = open(fichier,"x",encoding="utf8")
             f.close()
             f = open(fichier,"w",encoding="utf8")
-            f.write(copie(fichier))
+            f.write(copie_minuscule(fichier))
             f.close()
+def creation_folder_cleaned():
+    if not os.path.exists("cleaned"):
+        os.mkdir("cleaned")       
+    return creation_Nomination_cleaned()
 def ext_pres():
     liste = os.listdir("speeches")
     L = []
