@@ -2,6 +2,7 @@
 import os
 import random
 from math import *
+# Création d'une liste contenant le nom de tous les fichiers .txt
 def list_of_files(directory, extension):
     files_names = []
     for filename in os.listdir(directory):
@@ -29,6 +30,7 @@ def modification(txt):
         else :
             sectxt=sectxt + elt
     return sectxt
+# Coller le texte qu'on a copié du dossier speeches dans cleaned on lui appliquant les modifications
 def copie_minuscule(file):
     os.chdir("../")
     texte=""
@@ -36,6 +38,7 @@ def copie_minuscule(file):
     texte = str(f.read())
     texte = texte.lower()
     return modification(texte)
+# Créer des nouveaux fichiers dans cleaned avec le nom que ceux de speeches
 def creation_Nomination_cleaned():
     for fichier in list_of_files("./speeches",".txt"):
         if fichier not in os.listdir("cleaned"):
@@ -93,10 +96,11 @@ def IDF(mot_chercher):#revoie le log de chaque mot voulu un par un
         loga = 0.0
     return loga  
 def TF_idf():#revoie le TF-IDF de chaque mot sous forme de dictionnaire
-    dico_TF_IDF={}
+    dico_TF_IDF={} # clé le mot et valeur TF_IDF
     for key,valeurs in TF().items():
         dico_TF_IDF[key]=IDF(key)*valeurs
     return dico_TF_IDF
+# TD_IDF d'un mot dans un texte
 def TF_IDF_mot(val,nom):
     TF_dans_texte = 0
     for fichier in list_of_files("./speeches",".txt") :
@@ -220,9 +224,10 @@ def Creation_Question_Globale():
     global Question_Globale
     Question_Globale = input("rentre ta Question : ")
     return Question_Globale
+# Si elle commence par Commnent, elle met car...
 def random_answer():
     Question = Question_Globale
-    question_starters = {"Comment": "Après analyse, ","Pourquoi": "Car, ","Peux-tu": "Oui, bien sûr!","a" : "saloperie"}
+    question_starters = {"Comment": "Après analyse, ","Pourquoi": "Car, ","Peux-tu": "Oui, bien sûr!"}
     for key,valeur in question_starters.items():
         if key in Question :
             return valeur
@@ -270,6 +275,7 @@ def creation_TF_IDF_Question_dans_corpus():
                 if mot not in pres[key]:
                     pres[key][mot] = TF_IDF_mot(mot,key)
     return pres
+# Pour avoir les vecteurs de similarités entre les mots par rapport à chaque texte, prendre le vecteur le plus petit.
 def produit_scalaire():
     vecteur_similaires = {}
     matrice_corpus = creation_TF_IDF_Question_dans_corpus()
