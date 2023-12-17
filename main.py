@@ -1,7 +1,7 @@
 from function import *
 import os 
 if not os.path.exists("cleaned"):
-    minuscules()
+    creation_folder_cleaned()
 print("Rentre la commande que tu veux entre :")
 acces=int(input("1. Mots les moins importants : \n"
                 "2. mots les plus importants : \n"
