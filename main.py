@@ -50,7 +50,7 @@ elif acces == 9 :
     print(mot_evoque())
     print(TF_idf())
     Creation_Question_Globale()
-    print(max_cos(cosinus_symilaritude(),Creation_TF_IDF_Question()))
+    print(random_answer() +" "+max_cos(cosinus_symilaritude(),Creation_TF_IDF_Question()))
 
 #"Peux-tu me dire comment une nation peut-elle prendre soin du climat ?"
 
