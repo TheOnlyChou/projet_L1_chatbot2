@@ -2,7 +2,7 @@
 Chou-A-Wean Alias Lee-Hung-Hing  Alexandre; Djelassi-Doublet Théotim
 Lien git : https://github.com/TheOnlyChou/projet_L1_chatbot2.git
 ## Les fonctions
-- La fonction intro() sert permet de créer le fichier cleaned. En demandant à l'utilisateur s'il a déjà créé un fichier.
+- La fonction list_of_file sert permet de créer le fichier cleaned. En demandant à l'utilisateur s'il a déjà créé un fichier.
 - La fonction list_of_files() fait la liste de tous les fichiers ".txt" de speeches
 - La fonction modification() supprime tout caractère de ponctuation, si deux mots ont un tiret entre eux "-", si un mot est séparé par un "-" ex : modifi-cation on le laisse,
 si on a un " ' " on le remplace par un "e" ou un "a".
